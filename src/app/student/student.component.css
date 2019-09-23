@@ -20,11 +20,33 @@ table {
   width: 100%;
 }
 
-tr:hover {
-  background-color: #adcceb;
-}
-
-tr:hover td {
+th {
+  background-color: #90b8e0;
   color: white;
+  font-size: larger;
 }
 
+
+tr:hover {
+  background-color: #ebebeb;
+}
+
+
+#addButton{
+  background-color: #90b8e0;
+  color: white;
+  font-size: larger;
+  margin: 30px;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.mat-icon{
+  color: #ff6969;
+  transform: scale(1.5);
+}
+
+
+.deleteColumn{
+  text-align: center;
+}

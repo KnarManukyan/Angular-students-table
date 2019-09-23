@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../Student';
 import { StudentService } from '../student.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {Dialog} from './dialog';
+import {DialogExampleComponent} from '../dialog-example/dialog-example.component';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -11,14 +11,13 @@ import {Dialog} from './dialog';
 })
 export class StudentComponent implements OnInit {
   students: Map<number, Student>;
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'delete'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'age', 'delete'];
   constructor(private studentService: StudentService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getStudents();
     this.mapToArray();
   }
-
   getStudents(): void {
     this.students = this.studentService.getStudents();
   }
@@ -27,21 +26,18 @@ export class StudentComponent implements OnInit {
     return Array.from(this.students.values());
   }
 
-  delete(id) {
+  deleteStudent(id) {
     this.studentService.deleteStudent(id);
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(Dialog,{
-      data:{
-        message: 'Are you sure want to delete?',
-        buttonText: {
-          ok: 'Save',
-          cancel: 'No'
-        }
+  openDialog(student: Student){
+    event.stopPropagation();
+    const dialogRef = this.dialog.open(DialogExampleComponent, {data: student});
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'true') {
+        this.deleteStudent(student.id);
       }
-    })
+    });
   }
 }
-
-

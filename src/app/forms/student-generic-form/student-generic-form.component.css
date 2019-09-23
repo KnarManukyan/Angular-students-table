@@ -1,9 +1,37 @@
+
 .container {
   display: flex;
-  flex-direction: column;
-  margin: 50px;
 }
 
 .container > * {
   width: 100%;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+}
+
+.buttonContainer > * {
+  width: 25%;
+}
+
+.submitButton, .cancelButton{
+  background-color: #90b8e0;
+  color: white;
+  font-size: larger;
+  border-radius: 12px;
+}
+
+.formText{
+  font-size: x-large;
+  text-align: center;
+  margin: 50px 0px 100px 0px;
+}
+
+.errorMessage{
+  text-align: center;
+  color: #ff6969;
+  font-size: large;
 }

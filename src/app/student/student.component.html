@@ -1,5 +1,5 @@
 <div>
-  <button mat-stroked-button  color="primary" routerLink="/addStudent">Add Student</button>
+  <button id="addButton" mat-flat-button routerLink="/addStudent">Add Student</button>
 </div>
 <table mat-table [dataSource]="mapToArray()" class="mat-elevation-z8">
 
@@ -18,10 +18,15 @@
     <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef> age </th>
+    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="delete">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let element">
-      <button mat-icon-button (click)="openDialog()">
+    <td class="deleteColumn" mat-cell *matCellDef="let element">
+      <button class="deleteButton" mat-icon-button (click)="openDialog(element)">
       <mat-icon>remove</mat-icon>
       </button>
     </td>
@@ -31,3 +36,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let element; let row; columns: displayedColumns;" routerLink="/editStudent/{{element.id}}"></tr>
 </table>
+

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Student } from './Student';
-import {Observable, of} from 'rxjs';
-import {validate} from './Validation';
+import { Router } from '@angular/router';
+import { validate } from './Validation';
 
 @Injectable()
 export class StudentService {
   students: Map<number, Student>;
-  constructor() {
+  constructor(private router: Router) {
     this.students = new Map<number, Student>();
-    this.students.set(1, new Student(1, 'Knarik', 'Manukyan', 'knarmanukyan23@gmail.com', '077283264', 'dgbndgknh', 19));
-    this.students.set(2, new Student(2, 'Nare', 'Manukyan', 'knarmanukyan23@gmail.com', '077283264', 'dgbndgknh', 19));
+    this.students.set(111111, new Student(111111, 'Knarik', 'Manukyan', 'knarmanukyan23@gmail.com', '077283264', 'dgbndgknh', 19));
+    this.students.set(222222, new Student(222222, 'Nare', 'Manukyan', 'knarmanukyan23@gmail.com', '077283264', 'dgbndgknh', 19));
   }
   getStudents(): Map<number, Student> {
     return this.students;
@@ -17,13 +17,13 @@ export class StudentService {
   getStudent(id: number): Student {
     return this.students.get(id);
   }
-  hasStudent(id: number): boolean {
-    return this.students.has(id);
-  }
   addStudent(data): string {
+    data.id = Number(data.id);
+    data.age = Number(data.age);
     const message: string = validate(data, this.students);
+    console.log(message);
     if (message === 'valid') {
-      this.students.set(data.id, new Student(data.id, data.firstName, data.lastName, data.email, data.phone, data.note, data.age));
+      this.addOrEditStudent(data);
     }
     return message;
   }
@@ -31,9 +31,13 @@ export class StudentService {
     const message: string = validate(data, this.students);
     if (message === 'valid') {
       this.students.delete(oldID);
-      this.students.set(data.id, new Student(data.id, data.firstName, data.lastName, data.email, data.phone, data.note, data.age));
+      this.addOrEditStudent(data);
     }
     return message;
+  }
+  addOrEditStudent(data){
+    this.students.set(data.id, new Student(data.id, data.firstName, data.lastName, data.email, data.phone, data.note, data.age));
+    this.router.navigate(['/students']);
   }
   deleteStudent(id: number): void {
     this.students.delete(id);

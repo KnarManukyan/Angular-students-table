@@ -8,7 +8,8 @@ export function validate(data: Student, map: Map<number, Student>): string {
     const phone: string = data.phone;
     const note: string = data.note;
     const age: number = data.age;
-
+    console.log(map.has(Number(id)));
+    console.log(map);
     if (isNaN(id)) { alert('Id must contain only digits'); }
     else if (map.has(id)) { return('There is another person with this id'); }
     else if (id.toString().length !== 6) { return('Id has to be a 6 digit number'); }
