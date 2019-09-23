@@ -30,7 +30,7 @@ export class StudentComponent implements OnInit {
     this.studentService.deleteStudent(id);
   }
 
-  openDialog(student: Student){
+  openDialog(student: Student) {
     event.stopPropagation();
     const dialogRef = this.dialog.open(DialogExampleComponent, {data: student});
 

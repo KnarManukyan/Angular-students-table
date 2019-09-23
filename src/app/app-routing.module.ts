@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { StudentComponent } from './student/student.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {AddStudentFormComponent} from './forms/add-Student-form.component';
-import {EditStudentFormComponent} from './forms/edit-Student-form.component';
+import { AddStudentFormComponent } from './forms/add-Student-form.component';
+import { EditStudentFormComponent } from './forms/edit-Student-form.component';
 
 const appRoutes: Routes = [
   { path: 'editStudent/:id', component: EditStudentFormComponent },

@@ -28,6 +28,8 @@ export class StudentService {
     return message;
   }
   setStudent(oldID, data): string {
+    data.id = Number(data.id);
+    data.age = Number(data.age);
     const message: string = validate(data, this.students);
     if (message === 'valid') {
       this.students.delete(oldID);

@@ -35,3 +35,13 @@
   color: #ff6969;
   font-size: large;
 }
+
+.noStudentText{
+  text-align: center;
+}
+
+.noStudentButton{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

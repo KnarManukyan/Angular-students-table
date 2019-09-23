@@ -8,15 +8,16 @@
 
 h2{
   font-size: 400px;
-  margin-top: 50px;
-  margin-bottom: -100px;
-  font-family: "Tlwg Typo";
+  margin-top: 80px;
+  margin-bottom: -80px;
+  font-family: "Allerta Stencil";
   font-weight: bolder;
+  text-shadow: 15px 10px rgba(255, 255, 255, 0.2);
 }
 
 p{
-  font-size: 40px;
-  font-family: "Tlwg Typo";
+  font-size: 50px;
+  font-family: 'Gruppo';
   font-weight: bolder;
 }
 
@@ -30,3 +31,9 @@ p{
   background-image: url("../../assets/space.jpg");
 }
 
+button{
+  width: 10%;
+  padding: 10px;
+  opacity: 0.7;
+  font-size: 20px;
+}
