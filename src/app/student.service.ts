@@ -21,7 +21,9 @@ export class StudentService {
     data.id = Number(data.id);
     data.age = Number(data.age);
     const message: string = validate(data, this.students);
-    console.log(message);
+    if (this.students.has(data.id)) {
+      return 'There is another person with this id';
+    }
     if (message === 'valid') {
       this.addOrEditStudent(data);
     }
@@ -37,7 +39,7 @@ export class StudentService {
     }
     return message;
   }
-  addOrEditStudent(data){
+  addOrEditStudent(data) {
     this.students.set(data.id, new Student(data.id, data.firstName, data.lastName, data.email, data.phone, data.note, data.age));
     this.router.navigate(['/students']);
   }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Student } from '../Student';
 import { StudentService } from '../student.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {DialogExampleComponent} from '../dialog-example/dialog-example.component';
+import {DialogComponent} from '../dialog/dialog.component';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -32,7 +32,7 @@ export class StudentComponent implements OnInit {
 
   openDialog(student: Student) {
     event.stopPropagation();
-    const dialogRef = this.dialog.open(DialogExampleComponent, {data: student});
+    const dialogRef = this.dialog.open(DialogComponent, {data: student});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'true') {

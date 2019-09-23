@@ -1,5 +1,5 @@
 <div>
-  <button id="addButton" mat-flat-button routerLink="/addStudent">Add Student</button>
+  <button id="addButton" mat-flat-button routerLink="/add-student">Add Student</button>
 </div>
 <table mat-table [dataSource]="mapToArray()" class="mat-elevation-z8">
 
@@ -34,6 +34,6 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let element; let row; columns: displayedColumns;" routerLink="/editStudent/{{element.id}}"></tr>
+  <tr mat-row *matRowDef="let element; let row; columns: displayedColumns;" routerLink="/edit-student/{{element.id}}"></tr>
 </table>
 

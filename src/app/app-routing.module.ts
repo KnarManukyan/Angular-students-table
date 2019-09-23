@@ -3,15 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { StudentComponent } from './student/student.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AddStudentFormComponent } from './forms/add-Student-form.component';
-import { EditStudentFormComponent } from './forms/edit-Student-form.component';
 
 const appRoutes: Routes = [
-  { path: 'editStudent/:id', component: EditStudentFormComponent },
   { path: 'students', component: StudentComponent },
-  { path: 'addStudent', component: AddStudentFormComponent },
+  { path: 'add-student', loadChildren: () => import('./add-student/add-student.module').then(m => m.AddStudentModule) },
+  { path: 'edit-student/:id', loadChildren: () => import('./edit-student/edit-student.module').then(m => m.EditStudentModule) },
   { path: '',   redirectTo: '/students', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

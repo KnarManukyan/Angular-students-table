@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 @Component({
-  selector: 'app-add-student-form',
+  selector: 'app-add-student',
   template: `<app-student-generic-form (submitFunction)="submit($event)" [errorMessage] = "errorMessage" [text] = "'Add Student'" [type] = "'add'"></app-student-generic-form>`
 })
-export class AddStudentFormComponent implements OnInit {
+export class AddStudentComponent implements OnInit {
   constructor(private studentService: StudentService) { }
   errorMessage: string;
 
