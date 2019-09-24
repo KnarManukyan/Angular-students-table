@@ -4,7 +4,7 @@ import { StudentService } from '../student.service';
 import {Student} from '../Student';
 @Component({
   selector: 'app-edit-student',
-  template: `<app-student-generic-form (submitFunction)="submit($event)" [student] = "student" [errorMessage]="errorMessage" [text]="'Edit Student'" [type]="'edit'"></app-student-generic-form>`
+  templateUrl: './edit-student.component.html',
 })
 export class EditStudentComponent implements OnInit {
   student: Student;

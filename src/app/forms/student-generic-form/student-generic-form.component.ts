@@ -41,6 +41,7 @@ export class StudentGenericFormComponent implements OnInit {
   onSubmit() {
     this.submitFunction.emit(this.profileForm.value);
   }
+
   goBack(): void {
     this.location.back();
   }

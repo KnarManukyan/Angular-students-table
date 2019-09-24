@@ -9,7 +9,7 @@ const appRoutes: Routes = [
   { path: 'add-student', loadChildren: () => import('./add-student/add-student.module').then(m => m.AddStudentModule) },
   { path: 'edit-student/:id', loadChildren: () => import('./edit-student/edit-student.module').then(m => m.EditStudentModule) },
   { path: '',   redirectTo: '/students', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '**', loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule) },
 ];
 
 @NgModule({

@@ -3,7 +3,9 @@ import { Student } from './Student';
 import { Router } from '@angular/router';
 import { validate } from './Validation';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class StudentService {
   students: Map<number, Student>;
   constructor(private router: Router) {
